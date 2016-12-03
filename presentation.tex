@@ -17,6 +17,15 @@
 % avoid "figure:" in image captions
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
+% easy properly scaled full-size images
+\newcommand {\framedgraphic}[2] {
+    \begin{frame}{#1}
+        \begin{center}
+            \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{#2}
+        \end{center}
+    \end{frame}
+}
+
 \begin{frame}[plain]
 \titlepage
 \end{frame}
@@ -138,27 +147,36 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Surrogate-Funktionen}
 	
-	\begin{columns}[onlytextwidth]
-\begin{column}{.45\textwidth}
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/hinge_loss_surrogate_function.png}
-  \caption{$\mathcal{L}_{HINGE}(y, f(x)) = \frac{1}{\gamma} log(1 + exp(\gamma(1-y_i' f(x_i))))$}
-\end{figure}
-\end{column}
-\hfill
-\begin{column}{.45\textwidth}
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/hat_loss_surrogate_function.png}
-  \caption{$\mathcal{L}_{HAT}(f(x)) = exp(-3(f(x_{l+i}))^2)$}
-\end{figure}
-\end{column}
-\end{columns}
+\begin{frame}
+    \frametitle{Surrogate-Funktionen}
+        
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.45\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{img/hinge_loss_surrogate_function.png}
+                \caption{$\mathcal{L}_{HINGE}(y, f(x)) = \frac{1}{\gamma} log(1 + exp(\gamma(1-y_i' f(x_i))))$}
+            \end{figure}
+        \end{column}
+        \hfill
+        \begin{column}{.45\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{img/hat_loss_surrogate_function.png}
+                \caption{$\mathcal{L}_{HAT}(f(x)) = exp(-3(f(x_{l+i}))^2)$}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
+\begin{frame}
+	\frametitle{Ergebnisvergleich}
+	\begin{figure}
+	\includegraphics[width=\linewidth,height=.7\textheight,keepaspectratio]{img/example_results.png}
+    \caption{$LIBSVM$, $UniverSVM$ und $QN-S^3VM$}
+	
+	\end{figure}
+\end{frame}
 
 
 \section{Quellen}
@@ -166,7 +184,7 @@
 \begin{frame}
 \frametitle{Quellen}
 \begin{itemize}
-\item Gieseke, F., Airola, A. Pahikkala, T., Kramer, O. (2012). SPARSE QUASI-NEWTON OPTIMIZATION FOR SEMI-SUPERVISED SUPPORT VECTOR MACHINES
+\item Gieseke, F., Airola, A. Pahikkala, T., Kramer, O. (2012). Sparse Quasi-Newton optimization for semi-supervised support vector machines
 \item N\"urnberger, A. (2016). Advanced Topics in Machine Learning: Semi-Supervised Learning
 \end{itemize}
 \end{frame}
