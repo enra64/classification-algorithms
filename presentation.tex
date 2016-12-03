@@ -7,13 +7,15 @@
 \usepackage{url}
 \usepackage{pdfpages}
 
-
 \title{Semi Supervised Support Vector Machines}
 \author{Bethe, Herdick}
 \date{6.12.2016}
 \institute{Classification Algorithms FIN OvGU}
 
 \begin{document}
+
+% avoid "figure:" in image captions
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 
 \begin{frame}[plain]
 \titlepage
@@ -117,6 +119,26 @@
             \item \"Uber verschiedene Optimierungsverfahren kann der Aufwand dieser Methode gedr\"uckt werden
         \end{itemize}
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Surrogate-Funktionen}
+	
+	\begin{columns}[onlytextwidth]
+\begin{column}{.45\textwidth}
+\begin{figure}
+  \includegraphics[width=\textwidth]{img/hinge_loss_surrogate_function.png}
+  \caption{$\mathcal{L}_{HINGE}(y, f(x)) = \frac{1}{\gamma} log(1 + exp(\gamma(1-y_i' f(x_i))))$}
+\end{figure}
+\end{column}
+\hfill
+\begin{column}{.45\textwidth}
+\begin{figure}
+  \includegraphics[width=\textwidth]{img/hat_loss_surrogate_function.png}
+  \caption{$\mathcal{L}_{HAT}(f(x)) = exp(-3(f(x_{l+i}))^2)$}
+\end{figure}
+\end{column}
+\end{columns}
 \end{frame}
 
 
