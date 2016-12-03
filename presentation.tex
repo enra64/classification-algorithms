@@ -97,22 +97,39 @@
 
 \begin{frame}
     \frametitle{L\"osung des Optimierungsproblems}
+    \textbf{Kombinatorisch}
     \begin{itemize}
-        \item Kombinatorischer Ansatz
+        \item Generell: teste jede mögliche Labelzuweisung f\"ur fixe Hyperebene
+        \item Branch and bound: Aufspannen des Suchbaums
         \begin{itemize}
-            \item Genereller Ansatz: Kompletter L\"osungsbaum
-            \item Recht aufw\"andig: $O(2^n)$
+        	\item Depth-first search
+        	\item "Prunen" von Teilb\"aumen mit schlechterem Labeling
         \end{itemize}
-        \item Kontinuierlicher Ansatz
+        \item Findet globales Optimum, aber...
+        \item ...worst case: $O(2^n)$
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Kontinuierlicher Ansatz}
+	\frametitle{L\"osung des Optimierungsproblems}
+	\textbf{Kontinuierlich}
+	\begin{itemize}
+		\item Problem 1: Optimierungsfunktion ist nicht konvex -> numerisches Verfahren
+		\item Problem 2: Hyperebene und Labeling m\"ussen gleichzeitig optimiert werden
+		\item Idee: Simulated Annealing
+		\begin{itemize}
+			\item Fixiere Labeling und erhöhe Einfluss $\lambda_2$ iterativ
+			\item Initiall\"osung ganz ohne ungelabelte Daten
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{L\"osung des Optimierungsproblems}
     \begin{itemize}
         \item Quasi-Newton Ann\"aherung
         \begin{itemize}
-            \item Ersetzen der Loss-Funktionen durch ableitbare
+            \item Loss-Funktionen m\"ussen durch kontinuierliche "Surrogates" ersetzt werden
             \item Problem der nicht konvexen Hat-Loss-Funktion durch mithilfe des Quasi-Newtonschen Verfahrens umgehen
             \item \"Uber verschiedene Optimierungsverfahren kann der Aufwand dieser Methode gedr\"uckt werden
         \end{itemize}
