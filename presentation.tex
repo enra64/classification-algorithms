@@ -80,28 +80,39 @@
 \section{Loss-Funktionen}
 
 \begin{frame}
-\frametitle{Hinge-Loss-Funktion}
-    \begin{itemize}
-        \item Bewerten die Klassifikation eines Punktes
-        \item Angewandt auf normale SVMs
+    \frametitle{Hinge-Loss-Funktion} 
+    \begin{tabular}{cl}  
+        \begin{tabular}{c}                                       
+        \includegraphics[scale=0.2]{img/hinge_loss_function.png} 
+    \end{tabular}
+    & \begin{tabular}{l}
+    \parbox{0.5\linewidth}{
         \begin{itemize}
-            \item Hinge-Loss: $\mathcal{L}(y, t) = max(0, 1 − yt)$
-            \item $inf_{f \in \mathcal{H}} \frac{1}{l} \sum_{i=1}^l \mathcal{L} (y_i', f(x_i)) + \lambda \|f\|^2_\mathcal{H}$
-            \item Hinge Loss: \includegraphics[scale=0.2]{img/hinge_loss_function.png}
-        \end{itemize}	
-    \end{itemize}
+            \item Bewerten die Klassifikation eines Punktes
+            \item $\mathcal{L}(y, t) = max(0, 1 - yt)$
+        \end{itemize}
+    }
+    \end{tabular}  \\
+    \end{tabular}
 \end{frame}
 
 \begin{frame}
-\frametitle{Hat-Loss-Funktion}
-    \begin{itemize}
+    \frametitle{Hat-Loss-Funktion} 
+    \begin{tabular}{cl}  
+        \begin{tabular}{c}                                       
+        \includegraphics[scale=0.2]{img/hat_loss_function.png} 
+    	\end{tabular}
+    & \begin{tabular}{l}
+    \parbox{0.5\linewidth}{
+        \begin{itemize}
         \item Ungelabelte Daten haben keine bevorzugte Seite der Hyperebene
         \item Den ungelabelten Daten wird $y_i = sign(f(x))$ zugewiesen. 
         \item Da $sign(f(x))*f(x) = |f(x)|$, gilt f\"ur die ungelabelten Daten $\mathcal{L}(t) = max(0, 1-|t|)$
-        \item Hat Loss: \includegraphics[scale=0.2]{img/hat_loss_function.png}
-    \end{itemize}
+        \end{itemize}
+    }
+    \end{tabular}  \\
+    \end{tabular}
 \end{frame}
-
 
 \begin{frame}
     \frametitle{Surrogate-Funktionen}
@@ -126,6 +137,8 @@
         \end{column}
     \end{columns}
 \end{frame}
+
+
 
 
 \section{L\"osung des Optimierungsproblems}
