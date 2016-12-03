@@ -55,7 +55,10 @@
 
 \begin{frame}
 \frametitle{Optimierungsproblem der SVM}
-    $L(w,b,\alpha)=\frac{1}{2} \|w\|^2 - \sum_{i=1}^{n} \alpha_i (y_i(\big \langle w,x_i \big\rangle + b)-1)$
+    \begin{itemize}
+    	\item Optimierungsproblem: $L(w,b,\alpha)=\frac{1}{2} \|w\|^2 - \sum_{i=1}^{n} \alpha_i (y_i(\big \langle w,x_i \big\rangle + b)-1)$
+    	\item Klassifikation: $f(x) = sgn\left(\sum_{i=1}^{SV} \alpha_i y_i k(x, x_i)\right)$
+    \end{itemize} 
 \end{frame}
 
 
@@ -79,7 +82,7 @@
 \begin{frame}
 \frametitle{Hat-Loss-Funktion}
     \begin{itemize}
-        \item Um die ungelabelten Daten nutzen zu k\"onnen, wird erstmal eine vorl\"aufige Hyperebene erstellt.
+        \item Ungelabelte Daten haben keine bevorzugte Seite der Hyperebene
         \item Den ungelabelten Daten wird $y_i = sign(f(x))$ zugewiesen. 
         \item Da $sign(f(x))*f(x) = |f(x)|$, gilt f\"ur die ungelabelten Daten $\mathcal{L}(t) = max(0, 1-|t|)$
         \item Hat Loss: \includegraphics[scale=0.2]{img/hat_loss_function.png}
@@ -90,13 +93,6 @@
 
 
 \section{Optimierungsproblem der S3VM}
-
-\begin{frame}
-\frametitle{Herleitung}
-        \begin{itemize}
-            \item 
-        \end{itemize}
-\end{frame}
 
 \begin{frame}
 \frametitle{Optimierungsproblem der S3VM}
@@ -130,7 +126,7 @@
 		\begin{itemize}
 			\item Fixiere Labeling und erh\"ohe Einfluss $\lambda_2$ iterativ
 			\item Initiall\"osung ganz ohne ungelabelte Daten
-			\item Berechne Labeling jede Iteration neu
+			\item Berechne Ebene und Labeling jede Iteration neu
 		\end{itemize}
 	\end{itemize}
 \end{frame}
