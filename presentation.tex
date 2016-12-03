@@ -54,7 +54,7 @@
 \section{Erinnerung: SVMs}
 
 \begin{frame}
-\frametitle{Optimierungsproblem der SVM}
+\frametitle{Optimierungsproblem der Soft-Margin SVM}
     \begin{itemize}
     	\item Alte Formulierung:
     	\begin{itemize}
@@ -105,7 +105,11 @@
 
 \begin{frame}
     \frametitle{Surrogate-Funktionen}
-        
+    
+    \begin{itemize}
+    	\item Loss-Funktionen nicht differenzierbar
+    	\item Ersetze durch \"ahnliche "Surrogates"
+    \end{itemize}
     \begin{columns}[onlytextwidth]
         \begin{column}{.45\textwidth}
             \begin{figure}
@@ -156,14 +160,14 @@
     \frametitle{L\"osung des Optimierungsproblems}
     \textbf{Kombinatorisch}
     \begin{itemize}
-        \item Generell: teste jede mögliche Labelzuweisung f\"ur fixe Hyperebene
+    	\item Lokale Optima bei kontinuierlicher Optimierung m\"oglich
+        \item Idee: Teste jede m\"ogliche Labelzuweisung f\"ur fixe Hyperebene
         \item Branch and bound: Aufspannen des Suchbaums
         \begin{itemize}
         	\item Depth-first search
         	\item "Prunen" von Teilb\"aumen mit schlechterem Labeling
         \end{itemize}
-        \item Findet globales Optimum, aber...
-        \item ...worst case: $O(2^n)$
+        \item Findet globales Optimum, aber Worst Case von $O(2^n)$
     \end{itemize}
 \end{frame}
 
