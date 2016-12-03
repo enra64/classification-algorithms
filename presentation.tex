@@ -62,6 +62,13 @@
 \end{frame}
 
 
+\section{Optimierungsproblem der S3VM}
+
+\begin{frame}
+\frametitle{Optimierungsproblem der S3VM}
+    $min_f \sum_{i=1}^l (1-y_i f(x_i))_+ + \lambda \|h\|^2_{H_k} + \lambda_2 \sum_{i=l+1}^n (1- |f(x_i)|)_+$
+\end{frame}
+
 
 
 \section{Loss-Funktionen}
@@ -90,32 +97,28 @@
 \end{frame}
 
 
-
-
-\section{Optimierungsproblem der S3VM}
-
 \begin{frame}
-\frametitle{Optimierungsproblem der S3VM}
-    $min_f \sum_{i=1}^l (1-y_i f(x_i))_+ + \lambda \|h\|^2_{H_k} + \lambda_2 \sum_{i=l+1}^n (1- |f(x_i)|)_+$
+    \frametitle{Surrogate-Funktionen}
+        
+    \begin{columns}[onlytextwidth]
+        \begin{column}{.45\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{img/hinge_loss_surrogate_function.png}
+                \caption{$\mathcal{L}_{HINGE}(y, f(x)) = \frac{1}{\gamma} log(1 + exp(\gamma(1-y_i' f(x_i))))$}
+            \end{figure}
+        \end{column}
+        \hfill
+        \begin{column}{.45\textwidth}
+            \begin{figure}
+                \includegraphics[width=\textwidth]{img/hat_loss_surrogate_function.png}
+                \caption{$\mathcal{L}_{HAT}(f(x)) = exp(-3(f(x_{l+i}))^2)$}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
 \section{L\"osung des Optimierungsproblems}
-
-\begin{frame}
-    \frametitle{L\"osung des Optimierungsproblems}
-    \textbf{Kombinatorisch}
-    \begin{itemize}
-        \item Generell: teste jede mögliche Labelzuweisung f\"ur fixe Hyperebene
-        \item Branch and bound: Aufspannen des Suchbaums
-        \begin{itemize}
-        	\item Depth-first search
-        	\item "Prunen" von Teilb\"aumen mit schlechterem Labeling
-        \end{itemize}
-        \item Findet globales Optimum, aber...
-        \item ...worst case: $O(2^n)$
-    \end{itemize}
-\end{frame}
 
 \begin{frame}
 	\frametitle{L\"osung des Optimierungsproblems}
@@ -143,25 +146,19 @@
     \end{itemize}
 \end{frame}
 
-	
 \begin{frame}
-    \frametitle{Surrogate-Funktionen}
-        
-    \begin{columns}[onlytextwidth]
-        \begin{column}{.45\textwidth}
-            \begin{figure}
-                \includegraphics[width=\textwidth]{img/hinge_loss_surrogate_function.png}
-                \caption{$\mathcal{L}_{HINGE}(y, f(x)) = \frac{1}{\gamma} log(1 + exp(\gamma(1-y_i' f(x_i))))$}
-            \end{figure}
-        \end{column}
-        \hfill
-        \begin{column}{.45\textwidth}
-            \begin{figure}
-                \includegraphics[width=\textwidth]{img/hat_loss_surrogate_function.png}
-                \caption{$\mathcal{L}_{HAT}(f(x)) = exp(-3(f(x_{l+i}))^2)$}
-            \end{figure}
-        \end{column}
-    \end{columns}
+    \frametitle{L\"osung des Optimierungsproblems}
+    \textbf{Kombinatorisch}
+    \begin{itemize}
+        \item Generell: teste jede mögliche Labelzuweisung f\"ur fixe Hyperebene
+        \item Branch and bound: Aufspannen des Suchbaums
+        \begin{itemize}
+        	\item Depth-first search
+        	\item "Prunen" von Teilb\"aumen mit schlechterem Labeling
+        \end{itemize}
+        \item Findet globales Optimum, aber...
+        \item ...worst case: $O(2^n)$
+    \end{itemize}
 \end{frame}
 
 
