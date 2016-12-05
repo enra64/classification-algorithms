@@ -89,7 +89,7 @@
     \parbox{0.5\linewidth}{
         \begin{itemize}
             \item Bewerten die Klassifikation eines Punktes
-            \item $\mathcal{L}(y, t) = max(0, 1 - yt)$
+            \item $\mathcal{L}(y, f(x)) = max(0, 1 - y f(x))$
         \end{itemize}
     }
     \end{tabular}  \\
@@ -107,7 +107,7 @@
         \begin{itemize}
         \item Ungelabelte Daten haben keine bevorzugte Seite der Hyperebene
         \item Den ungelabelten Daten wird $y_i = sign(f(x))$ zugewiesen. 
-        \item Da $sign(f(x))*f(x) = |f(x)|$, gilt f\"ur die ungelabelten Daten $\mathcal{L}(t) = max(0, 1-|t|)$
+        \item Da $sign(f(x))*f(x) = |f(x)|$, gilt f\"ur die ungelabelten Daten $\mathcal{L}(f(x)) = max(0, 1-|f(x)|)$
         \end{itemize}
     }
     \end{tabular}  \\
